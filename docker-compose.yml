@@ -1,0 +1,43 @@
+version: "3"
+services:
+  api:
+    container_name: dev_go_blog_api
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    environment:
+      GO111MODULE: "on"
+    tty: true
+    volumes:
+      - ./api:/go/src/github.com/yongwoon/gin-blog
+    ports:
+      - 3001:3001
+    links:
+      - db
+    networks:
+      - dev_go_blog_network
+  db:
+    container_name: dev_go_blog_db
+    image: mysql:8.0
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    command: >
+      mysqld
+        --default-authentication-plugin=mysql_native_password
+        --character-set-server=utf8mb4
+        --collation-server=utf8mb4_general_ci
+    ports:
+      - "3307:3306"
+    volumes:
+      - dev_go_blog_db_volume:/var/lib/mysql
+    security_opt:
+      - seccomp:unconfined
+    networks:
+      - dev_go_blog_network
+
+# マウント時に vendor 以下を削除してしまうため、別 volume を指定する
+# Gopkg.toml を編集する場合、vendor ボリュームも削除しイメージを再構築する
+volumes:
+  dev_go_blog_db_volume:
+networks:
+  dev_go_blog_network:
