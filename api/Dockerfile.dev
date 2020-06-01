@@ -1,0 +1,31 @@
+FROM golang:1.14.3-alpine3.11
+
+LABEL maintainer="https://github.com/yongwoon"
+
+# Avoid warnings by switching to noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
+
+ENV GOPATH=/go
+ENV GO111MODULE=off
+
+WORKDIR /go/src/github.com/yongwoon/gin-blog
+
+ENV GO111MODULE=off
+
+RUN apk update \
+  && apk add --no-cache git curl vim openssh gcc musl-dev \
+  && go get github.com/gin-gonic/gin \
+  && go get github.com/jinzhu/gorm \
+  && go get github.com/go-sql-driver/mysql \
+  && curl -fLo /go/bin/air https://git.io/linux_air \
+  && chmod +x /go/bin/air
+
+ENV GO111MODULE on
+
+COPY . .
+
+RUN go mod download
+
+# コンテナ実行時のデフォルトを設定する
+# ライブリロードを実行する
+CMD air
