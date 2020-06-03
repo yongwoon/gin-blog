@@ -1,5 +1,11 @@
 # Set develop
 
+- env file
+
+```bash
+cp ./api/.env.sample ./api/.env
+```
+
 - image build
 
 ```bash
