@@ -1,14 +1,11 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/yongwoon/gin-blog/db"
+	"github.com/yongwoon/gin-blog/routers"
+)
 
 func main() {
-	r := gin.Default()
-	r.GET("/ping", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "ping",
-		})
-	})
-	// ポートを設定しています。
-	r.Run(":3001")
+	dbConn := db.Init()
+	routers.Router(dbConn)
 }
