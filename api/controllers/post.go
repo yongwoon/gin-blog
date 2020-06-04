@@ -1,8 +1,6 @@
 package controllers
 
 import (
-
-
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	"github.com/yongwoon/gin-blog/entities"
@@ -12,12 +10,12 @@ type PostHandler struct {
 	Db *gorm.DB
 }
 
-func (h *PostHandler) GetAll(c *gin.Context) {
+func (h *PostHandler) Index(c *gin.Context) {
 	var posts []entities.Post
 	h.Db.Find(&posts)
 	c.JSON(200, posts)
 }
-func (h *PostHandler) CreatePost(c *gin.Context) {
+func (h *PostHandler) Create(c *gin.Context) {
 	title, _ := c.GetPostForm("title")
 	contents, _ := c.GetPostForm("contents")
 	h.Db.Create(&entities.Post{Title: title, Contents: contents})
@@ -26,13 +24,13 @@ func (h *PostHandler) CreatePost(c *gin.Context) {
 	h.Db.Last(&post)
 	c.JSON(200, post)
 }
-func (h *PostHandler) ShowPost(c *gin.Context) {
+func (h *PostHandler) Show(c *gin.Context) {
 	post := entities.Post{}
 	id := c.Param("id")
 	h.Db.First(&post, id)
 	c.JSON(200, post)
 }
-func (h *PostHandler) UpdatePost(c *gin.Context) {
+func (h *PostHandler) Update(c *gin.Context) {
 	post := entities.Post{}
 	id := c.Param("id")
 	title, _ := c.GetPostForm("title")
@@ -44,7 +42,7 @@ func (h *PostHandler) UpdatePost(c *gin.Context) {
 	h.Db.Save(&post)
 	c.JSON(200, post)
 }
-func (h *PostHandler) DeletePost(c *gin.Context) {
+func (h *PostHandler) Destroy(c *gin.Context) {
 	post := entities.Post{}
 	id := c.Param("id")
 	h.Db.First(&post, id)
