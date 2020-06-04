@@ -8,6 +8,7 @@ Blog service
 
 ## TODO
 
+- respose formatting
 - dotenv setting
 - logger
   - Write log to file (github.com/sirupsen/logrus)
