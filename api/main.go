@@ -2,10 +2,10 @@ package main
 
 import (
 	"github.com/yongwoon/gin-blog/db"
-	"github.com/yongwoon/gin-blog/routers"
+	"github.com/yongwoon/gin-blog/router"
 )
 
 func main() {
 	dbConn := db.Init()
-	routers.Router(dbConn)
+	router.Router(dbConn)
 }

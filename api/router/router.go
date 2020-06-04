@@ -1,9 +1,10 @@
-package routers
+package router
 
 import (
 	"github.com/gin-contrib/cors"
 	"github.com/jinzhu/gorm"
 	"github.com/gin-gonic/gin"
+	v1 "github.com/yongwoon/gin-blog/router/v1"
 )
 
 // Router router list
@@ -13,7 +14,7 @@ func Router(dbConn *gorm.DB) {
 	// Set cors
 	// @see https://github.com/gin-contrib/cors
 	r.Use(cors.Default())
-	initV1Router(r, dbConn)
+	v1.InitRouter(r, dbConn)
 
 	r.Run(":3001")
 }
