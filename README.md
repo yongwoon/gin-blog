@@ -1,8 +1,14 @@
-# gin proj
+# Blog with go
 
-https://taisablog.com/archives/1584
-https://qiita.com/Syoitu/items/8e7e3215fb7ac9dabc3a
+Blog service
 
 ## links
 
 - [go package gode guide](https://rakyll.org/style-packages/)
+
+## TODO
+
+- dotenv setting
+- logger
+  - Write log to file (github.com/sirupsen/logrus)
+- middleware

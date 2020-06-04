@@ -3,7 +3,7 @@ package v1
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
-	"github.com/yongwoon/gin-blog/controllers"
+	"github.com/yongwoon/gin-blog/controller"
 )
 
 

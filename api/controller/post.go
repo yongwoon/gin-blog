@@ -3,7 +3,7 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
-	"github.com/yongwoon/gin-blog/entities"
+	"github.com/yongwoon/gin-blog/entity"
 )
 
 type PostHandler struct {
