@@ -33,8 +33,8 @@ func Router(dbConn *gorm.DB) {
 
 	r.GET("/posts", postHandler.GetAll)
 	r.POST("/posts", postHandler.CreatePost)
-	r.GET("/posts/:id", postHandler.EditPost)
-	r.POST("/posts/:id/edit", postHandler.UpdatePost)
+	r.GET("/posts/:id", postHandler.ShowPost)
+	r.PATCH("/posts/:id", postHandler.UpdatePost)
 	r.DELETE("/posts/:id", postHandler.DeletePost)
 	r.Run(":3001")
 }
