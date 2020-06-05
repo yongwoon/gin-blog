@@ -1,9 +1,12 @@
-package controllers
+package controller
 
 import (
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	"github.com/yongwoon/gin-blog/entity"
+	"github.com/yongwoon/gin-blog/serializer"
 )
 
 type PostHandler struct {
@@ -11,27 +14,36 @@ type PostHandler struct {
 }
 
 func (h *PostHandler) Index(c *gin.Context) {
-	var posts []entities.Post
+	var posts []entity.Post
 	h.Db.Find(&posts)
-	c.JSON(200, posts)
+
+	serializer := serializer.PostsSerializer{c, posts}
+	c.JSON(http.StatusOK, gin.H{"posts": serializer.Response()})
 }
+
 func (h *PostHandler) Create(c *gin.Context) {
 	title, _ := c.GetPostForm("title")
 	contents, _ := c.GetPostForm("contents")
-	h.Db.Create(&entities.Post{Title: title, Contents: contents})
+	h.Db.Create(&entity.Post{Title: title, Contents: contents})
 
-	post := entities.Post{}
+	post := entity.Post{}
 	h.Db.Last(&post)
-	c.JSON(200, post)
+
+	serializer := serializer.PostSerializer{c, post}
+	c.JSON(http.StatusCreated, gin.H{"post": serializer.Response()})
 }
+
 func (h *PostHandler) Show(c *gin.Context) {
-	post := entities.Post{}
+	post := entity.Post{}
 	id := c.Param("id")
 	h.Db.First(&post, id)
-	c.JSON(200, post)
+
+	serializer := serializer.PostSerializer{c, post}
+	c.JSON(http.StatusCreated, gin.H{"post": serializer.Response()})
 }
+
 func (h *PostHandler) Update(c *gin.Context) {
-	post := entities.Post{}
+	post := entity.Post{}
 	id := c.Param("id")
 	title, _ := c.GetPostForm("title")
 	contents, _ := c.GetPostForm("contents")
@@ -40,14 +52,17 @@ func (h *PostHandler) Update(c *gin.Context) {
 	post.Title = title
 	post.Contents = contents
 	h.Db.Save(&post)
-	c.JSON(200, post)
+
+	serializer := serializer.PostSerializer{c, post}
+	c.JSON(http.StatusOK, gin.H{"post": serializer.Response()})
 }
+
 func (h *PostHandler) Destroy(c *gin.Context) {
-	post := entities.Post{}
+	post := entity.Post{}
 	id := c.Param("id")
 	h.Db.First(&post, id)
 	h.Db.Delete(&post)
-	c.JSON(200, gin.H{
-		"result": "success",
-	})
+
+	serializer := serializer.SuccessSerializer{c}
+	c.JSON(http.StatusCreated, serializer.Response())
 }
