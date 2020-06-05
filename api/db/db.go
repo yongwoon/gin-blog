@@ -21,6 +21,6 @@ func Init() *gorm.DB {
 
 	db.Set("gorm:table_options", "ENGINE=InnoDB")
 	db.LogMode(true)
-	db.AutoMigrate(&entities.Post{})
+	db.AutoMigrate(&entity.Post{})
 	return db
 }
