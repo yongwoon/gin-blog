@@ -8,7 +8,7 @@ import (
 
 
 func Post(rg *gin.RouterGroup, dbConn *gorm.DB) {
-	postHandler := controllers.PostHandler{
+	postHandler := controller.PostHandler{
 		Db: dbConn,
 	}
 
