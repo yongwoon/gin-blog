@@ -1,0 +1,36 @@
+---
+development:
+  dialect: "mysql"
+  database: "blog_development"
+  host: "db"
+  port: "3306"
+  user: "root"
+  password: ""
+
+test:
+  dialect: "mysql"
+  database: "blog_test"
+  host: "db"
+  port: "3306"
+  user: "root"
+  password: ""
+
+production:
+  dialect: "mysql"
+  database: "gin-blog_production"
+  host: {{envOr "DATABASE_HOST" "localhost"}}
+  port: {{envOr "DATABASE_PORT" "3306"}}
+  user: {{envOr "DATABASE_USER" "root"}}
+  password: {{envOr "DATABASE_PASSWORD" "root"}}
+  #
+  # And you can also override connection parameters by setting it under options.
+  #
+  #options:
+  #  parseTime: true
+  #  multiStatements: true
+  #  readTimeout: 3s
+  #  collation: "utf8mb4_general_ci"
+  #
+  # CAUTION!
+  #   `parseTime` and` multiStatements` must be set to `true` to work properly.
+  #   If you are not sure, do not change (or set) these values.
