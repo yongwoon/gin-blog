@@ -7,8 +7,9 @@ import (
 )
 
 // Router router list
-func Router(engine *gin.Engine, dbConn *gorm.DB) {
+func Router(engine *gin.Engine, dbConn *gorm.DB) *gin.Engine {
 	v1.InitRouter(engine, dbConn)
 
 	engine.Run(":3001")
+	return engine
 }
