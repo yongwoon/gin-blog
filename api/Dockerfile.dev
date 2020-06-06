@@ -25,6 +25,7 @@ ENV GO111MODULE on
 COPY . .
 
 RUN go mod download
+RUN go install github.com/gobuffalo/pop/soda
 
 # コンテナ実行時のデフォルトを設定する
 # ライブリロードを実行する
