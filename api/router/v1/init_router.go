@@ -5,7 +5,6 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-
 func InitRouter(r *gin.Engine, dbConn *gorm.DB) {
 	v1 := r.Group("/api/v1")
 	{
