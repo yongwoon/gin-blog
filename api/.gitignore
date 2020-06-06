@@ -90,3 +90,6 @@ Temporary Items
 .env
 
 tmp/*
+
+logs/*
+!logs/.keep

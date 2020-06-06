@@ -20,12 +20,8 @@ Blog service
 
 ## TODO
 
-- migration 管理
-- dotenv setting
-- logger
-  - Write log to file (github.com/sirupsen/logrus)
+- Test code
+  - github.com/stretchr/testify
 - middleware
 - swagger
-- slack?
-- TEST
-  - github.com/stretchr/testify
+- slack
