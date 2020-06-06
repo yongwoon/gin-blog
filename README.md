@@ -20,7 +20,6 @@ Blog service
 
 ## TODO
 
-- migration 管理
 - dotenv setting
 - logger
   - Write log to file (github.com/sirupsen/logrus)
