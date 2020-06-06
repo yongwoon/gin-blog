@@ -6,10 +6,10 @@ Blog service
 
 - [開発環境構築](./docs/dev.md)
 
-## テストコードの実行
+## テストコードの実行方法
 
 ```bash
-go test -v .
+ENVIRONMENT=test go test ./...
 ```
 
 ## links
@@ -28,6 +28,5 @@ go test -v .
 
 - Test code
   - github.com/stretchr/testify
-- middleware
 - swagger
 - slack

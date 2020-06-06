@@ -27,12 +27,15 @@ docker-compose exec api sh
 ```bash
 soda create -e development
 soda create -e test
+soda create -e production
 ```
 
 - db migrate
 
 ```bash
-soda migrate
+soda migrate -e development
+soda migrate -e test
+soda migrate -e production
 ```
 
 - Access to http://localhost:3001/api/v1/ping
