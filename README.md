@@ -6,6 +6,12 @@ Blog service
 
 - [開発環境構築](./docs/dev.md)
 
+## テストコードの実行
+
+```bash
+go test -v .
+```
+
 ## links
 
 ### go guide
