@@ -3,7 +3,6 @@ package db
 import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
-	"github.com/yongwoon/gin-blog/entity"
 )
 
 func Init() *gorm.DB {
@@ -21,6 +20,5 @@ func Init() *gorm.DB {
 
 	db.Set("gorm:table_options", "ENGINE=InnoDB")
 	db.LogMode(true)
-	db.AutoMigrate(&entity.Post{})
 	return db
 }
