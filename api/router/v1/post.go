@@ -6,7 +6,6 @@ import (
 	"github.com/yongwoon/gin-blog/controller"
 )
 
-
 func Post(rg *gin.RouterGroup, dbConn *gorm.DB) {
 	postHandler := controller.PostHandler{
 		Db: dbConn,

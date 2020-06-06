@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gin-contrib/cors"
-	"github.com/jinzhu/gorm"
 	"github.com/gin-gonic/gin"
+	"github.com/jinzhu/gorm"
 	v1 "github.com/yongwoon/gin-blog/router/v1"
 )
 

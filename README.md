@@ -2,6 +2,10 @@
 
 Blog service
 
+## 開発環境の構築
+
+- [開発環境構築](./docs/dev.md)
+
 ## links
 
 ### go guide
@@ -16,10 +20,12 @@ Blog service
 
 ## TODO
 
+- migration 管理
 - dotenv setting
 - logger
   - Write log to file (github.com/sirupsen/logrus)
 - middleware
-- migration 管理
 - swagger
 - slack?
+- TEST
+  - github.com/stretchr/testify

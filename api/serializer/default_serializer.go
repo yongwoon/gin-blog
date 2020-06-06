@@ -4,23 +4,21 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-
 type SuccessSerializer struct {
 	C *gin.Context
 }
 
 type SuccessResponse struct {
-	Status         string                `json:"status"`
-	Message        string                `json:"message"`
+	Status  string `json:"status"`
+	Message string `json:"message"`
 }
 
 func (s *SuccessSerializer) Response() SuccessResponse {
-	return SuccessResponse {
-		Status:       "success",
-		Message: 	    "",
+	return SuccessResponse{
+		Status:  "success",
+		Message: "",
 	}
 }
-
 
 //  TODO: error message format
 // {

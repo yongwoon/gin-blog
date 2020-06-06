@@ -1,0 +1,6 @@
+create_table("posts") {
+  t.Column("id", "integer", {primary: true})
+  t.Column("title", "string", {"size": 100})
+  t.Column("contents", "text", {"null": false})
+  t.Column("deleted_at", "datetime", {"null": true, "after": "updated_at"})
+}
