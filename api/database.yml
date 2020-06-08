@@ -17,11 +17,11 @@ test:
 
 production:
   dialect: "mysql"
-  database: "gin-blog_production"
-  host: {{envOr "DATABASE_HOST" "localhost"}}
-  port: {{envOr "DATABASE_PORT" "3306"}}
-  user: {{envOr "DATABASE_USER" "root"}}
-  password: {{envOr "DATABASE_PASSWORD" "root"}}
+  database: "blog_production"
+  host: { { envOr "DATABASE_HOST" "localhost" } }
+  port: { { envOr "DATABASE_PORT" "3306" } }
+  user: { { envOr "DATABASE_USER" "root" } }
+  password: { { envOr "DATABASE_PASSWORD" "root" } }
   #
   # And you can also override connection parameters by setting it under options.
   #
