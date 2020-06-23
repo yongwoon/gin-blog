@@ -23,6 +23,7 @@ ENVIRONMENT=test go test ./...
 
 - [gin-boilerplate](https://github.com/Massad/gin-boilerplate)
 - [golang-gin-realworld-example-app](https://github.com/gothinkster/golang-gin-realworld-example-app)
+- [go-gin-example](https://github.com/eddycjy/go-gin-example)
 
 ## TODO
 
