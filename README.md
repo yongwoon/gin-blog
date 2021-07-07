@@ -6,6 +6,12 @@ Blog service
 
 - [開発環境構築](./docs/dev.md)
 
+## テストコードの実行方法
+
+```bash
+ENVIRONMENT=test go test ./...
+```
+
 ## links
 
 ### go guide
@@ -17,11 +23,11 @@ Blog service
 
 - [gin-boilerplate](https://github.com/Massad/gin-boilerplate)
 - [golang-gin-realworld-example-app](https://github.com/gothinkster/golang-gin-realworld-example-app)
+- [go-gin-example](https://github.com/eddycjy/go-gin-example)
 
 ## TODO
 
 - Test code
   - github.com/stretchr/testify
-- middleware
 - swagger
 - slack

@@ -5,7 +5,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-func InitRouter(r *gin.Engine, dbConn *gorm.DB) {
+func InitRouter(r *gin.Engine, dbConn *gorm.DB) *gin.Engine {
 	v1 := r.Group("/api/v1")
 	{
 		v1.GET("/ping", func(c *gin.Context) {
@@ -16,4 +16,6 @@ func InitRouter(r *gin.Engine, dbConn *gorm.DB) {
 
 		Post(v1, dbConn)
 	}
+
+	return r
 }

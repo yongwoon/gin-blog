@@ -26,5 +26,6 @@ require (
 	github.com/rifflock/lfshook v0.0.0-20180920164130-b9218ef580f5
 	github.com/sirupsen/logrus v1.6.0
 	github.com/spf13/cobra v1.0.0 // indirect
+	github.com/stretchr/testify v1.6.1
 	golang.org/x/sync v0.0.0-20200317015054-43a5402ce75a // indirect
 )
